@@ -87,13 +87,14 @@ bash run_SPR56C_2S.sh acc
 bash run_SPR56C_2S.sh perf
 ```
 
-## Run on AWS
-You could run the workload with prepared AWS AMI image.  
-please replace the IMAGE ID, YOUR SCRIPT and PATH accordingly.
+## Run on host with docker environment (automation script)
+
+### You could run the workload with prepared docker image, without going into the docker image container. This script can automatically process running docker containers with minimal user intervention, using the pre-trained models and datasets that are saved outside of the container environment. 
++ Performance
 ```
-./run_docker.sh <IMAGE ID>  /workspace/<YOUR SCRIPT in current host folder> <PATH of 3dunet codes in docker image> aws_3dunet
+bash run_docker.sh intel/intel-optimized-pytorch:mlperf-inference-2.1-3dunet /workspace/run_offline.sh /opt/workdir/code/3d-unet-99.9/pytorch-cpu-kits19 aws_3dunet  3dunet_perf.txt env_perf.list ~/mlperf_data/3dunet-kits
 ```
-Here is the example, and it should also work with the prepared AMI image.
++ Accuracy
 ```
-./run_docker.sh ce03546c4d75  /workspace/run_AWS.sh /opt/workdir/code/3d-unet-99.9/pytorch-cpu-kits19 aws_3dunet
+bash run_docker.sh intel/intel-optimized-pytorch:mlperf-inference-2.1-3dunet /workspace/run_offline.sh /opt/workdir/code/3d-unet-99.9/pytorch-cpu-kits19 aws_3dunet  3dunet_acc.txt env_acc.list ~/mlperf_data/3dunet-kits
 ```
