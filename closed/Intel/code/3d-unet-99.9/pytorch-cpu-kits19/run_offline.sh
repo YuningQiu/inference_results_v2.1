@@ -3,7 +3,6 @@ echo $number_threads
 number_instance=$((number_threads/8))
 echo $number_instance
 
-
 if [ -z "${RUN_TYPE}" ]; then
     echo "NO RUN_TYPE ( perf/acc)found export RUN_TYPE=perf"
     export RUN_TYPE=perf
